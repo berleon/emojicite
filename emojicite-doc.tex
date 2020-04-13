@@ -1,0 +1,183 @@
+\documentclass{l3doc}
+\usepackage{fontspec}
+\usepackage{emojicite}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{array,booktabs,fontspec,geometry,graphicx,longtable,xcolor}
+
+\setcitestyle{authoryear, round}
+\bibliographystyle{plainnat}
+\hypersetup{citecolor=black}
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\small,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\setlength{\parskip}{0.0em}
+\setlength\parindent{0pt}
+
+\makeatletter
+\ExplSyntaxOn
+\def\@fnsymbol#1{
+  \ensuremath{
+    \ifcase #1
+        \or \text{\emoji{globe-with-meridians}}
+        \or \text{\emoji{email}}
+    \fi}}
+\ExplSyntaxOff
+\makeatother
+
+
+\title{The \pkg{emojicite} package \thanks{\url{https://github.com/berleon/emojicite}} \\
+  Adds Emojis to Citations \\
+  \normalsize (requires Lua\LaTeX)}
+  \author{Leon Sixt \thanks{\url{mail@leon-sixt.com}}}
+\date{\emoji{date} 2020/04/13\quad v0.1}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\setlength{\parskip}{0.5em}
+
+\section{Introduction}
+
+Scientific publications are too dry. Too much math, too little emotions. Science
+needs emojis!
+Leave a small heart to value the hard work gone into a paper \emojicitep{smith2014honey, heart}.
+Finally, you can express what you true think directly as in \emojicitep{wakefield1998retracted, facepalm}.
+We could also indicate, how thoroughly we read papers \emojicitep{van2014difference, see-no-evil}.
+
+\begin{verbatim}
+    \emojicitep{van2014difference, see-no-evil}.
+\end{verbatim}
+
+
+The package is based on the \pkg{emoji} package\footnote{\url{https://ctan.org/pkg/emoji}}.
+See their documentation for the emoji codes\footnote{\url{http://mirrors.ctan.org/macros/luatex/latex/emoji/emoji-doc.pdf}}. You can also use \texttt{\textbackslash setemojifont\{\dots\}} to select a different emoji font.
+
+
+%\emojicitep{wakefield1998retracted, facepalm, see-no-evil}
+You can use up to two emojis \emojicitep{shannon1948, bow, thinking}. The package also supports
+to cite multiple works as in \emojicitep{sixt2019explanations, selfie; adebayo2018sanity, +1}.
+\pkg{emojicite} does not support more than two emojis.
+\texttt{\textbackslash emojicitep\{wakefield1998retracted, facepalm, roll-eyes, shrug\}}
+renders as \emojicitep{wakefield1998retracted, facepalm, roll-eyes, shrug}.
+Let's ensure science does not get to emotional \emoji{point-up-2}\emoji{neutral-face}.
+
+\newpage
+\subsection{Example}
+
+\lstinputlisting[language=Tex,caption={Output of the example is: \emojicitep{einstein, kissing-heart} }]{example.tex}
+\subsection{Requirements}
+
+The package works with the Tex Live 2020 distributon and you need to use \texttt{lualatex}.
+If you use the \texttt{latexmk} tool, use it with this flag: \texttt{latexmk -pdflua}.
+See the \pkg{emoji} package for are an in-depth description of the requirements.
+
+
+\section{Examplary Usage}
+
+Here are some emoji, I found fitting.
+
+\begin{table}[H]
+    \centering
+    \caption{How did you liked the cited work?}
+    \begin{tabular}{l l l}
+        \hline \hline
+        \textbf{Citation} & \textbf{Emoji} & \textbf{Description} \\ \hline \hline
+        \emojicitep{einstein, kissing-heart} & \texttt{kissing-heart} & I like this work. Here is a kiss. \\ \hline
+        \emojicitep{shannon1948, bow} &\texttt{bow} & Wow, I can only bow to this work. \\ \hline
+        \emojicitep{kim2017interpretability, +1} &\texttt{+1} & Good work! \\ \hline
+        \emojicitep{zhang20167kissing, confused} &\texttt{confused} & I am confused by this work. \\ \hline
+        \emojicitep{le1989gemini, yawning-face}  & \texttt{yawning-face} & Boring work.\\ \hline
+        \emojicitep{tishby2015deep, raised-eyebrow} &\texttt{raised-eyebrow}& I have some serious questions...\\ \hline
+        %\emojicitep{shannon1948, thumbs-down} &\texttt{thumbs-down} & As a reviewer, I would not accept this. \\ \hline
+        \emojicitep{wakefield1998retracted, facepalm} &\texttt{facepalm}& omg, this work sucks! \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{How thoroughly have you read the work?}
+    \begin{tabular}{l l l}
+        \hline \hline
+        \textbf{Citation} & \textbf{Emoji} & \textbf{Description} \\ \hline \hline
+        \emojicitep{kingma2013auto, nerd-face}  & \texttt{nerd-face}& I know everything about this work. \\ \hline
+        \emojicitep{kim2017interpretability, graduation-cap}  & \texttt{graduation-cap}& I know this work well. \\ \hline
+        \emojicitep{shannon1948, thinking} &\texttt{thinking}& I read it but I still have questions.  \\ \hline
+        \emojicitep{jones1972statistical, see-no-evil} &\texttt{see-no-evil}& Ups, I did not read this work in-depth.  \\ \hline
+        \emojicitep{einstein, shrug} &\texttt{shrug}& too long; did not read  \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{Special emojis}
+    \begin{tabular}{l l l}
+        \hline \hline
+        \textbf{Citation} & \textbf{Emoji} & \textbf{Description} \\ \hline \hline
+        \emojicitep{sixt2019explanations, selfie}  & \texttt{selfie} & Citing myself. It just fits perfectly.\\ \hline
+        \emojicitep{blei2003latent, writing-hand, +1}  & \texttt{writing-hand, +1} & Well written work.\\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Short summary of papers}
+    \begin{tabular}{l l l}
+        \hline \hline
+        \textbf{Citation} & \textbf{Emoji} & \textbf{Description} \\ \hline \hline
+        \emojicitep{watson1953molecular, dna}  & \texttt{dna} & Helix structure of DNA.\\ \hline
+        \emojicitep{smith2014honey, grimacing, bee}  & \texttt{grimacing, bee} & Getting sting by honey bees.  \\ \hline
+        \emojicitep{zhang20167kissing, kissing-heart, robot}  & \texttt{kissing-heart, robot} & Kissing machine.  \\ \hline
+        \emojicitep{nakanishi2014remote, handshake, mechanical-arm}  & \texttt{handshake, mechanical-arm} & Handshake machine.  \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\section{Limitations}
+
+Currently, only the name-year format is supported but using a number format is also simple wrong.
+Unfortunatly, the Tex Live package required by this verison is not yet available
+on ArXiv. If you want to publish on ArXiv, you probably would have to upload the PDF.
+Another problem could be that scientific journal and conferences might not see the same great value in emojis.
+Every revolution requires a bit of time.
+
+
+
+\bibliography{bibliography}
+\end{document}
