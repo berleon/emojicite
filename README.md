@@ -4,8 +4,9 @@
 
 Scientific publications are too dry. Too much math, too little emotions. Science
 needs emojis!
-Leave a small heart to value the hard work gone into a paper (Smith, 2014 ❤️ )
-Finally, you can express what you true think directly as in (Wakefield et. al, 1998 🤦).
+Leave a small heart to value the hard work gone into a paper (Smith, 2014 ❤️ ).
+Flag self-citations as in (Sixt et al., 2019 🤳)
+Finally, you can express what you truly think directly as in (Wakefield et. al, 1998 🤦).
 We could also indicate, how thoroughly we read papers (Van Wesel et al., 2014 🙈)
 
 ## Basic Usage
