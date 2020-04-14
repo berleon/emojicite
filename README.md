@@ -1,6 +1,7 @@
 # emojicite
 
-[CTAN]
+[[CTAN](https://www.ctan.org/tex-archive/macros/luatex/latex/emojicite)] |
+[[PDF Docu](http://mirrors.ctan.org/macros/luatex/latex/emojicite/emojicite-doc.pdf)]
 
 Scientific publications are too dry. Too much math, too little emotions. Science
 needs emojis!
@@ -53,10 +54,19 @@ Table 2: How thoroughly have you read the work?
 | (Jones, 1972 🙈)               | see-no-evil    | Ups, I did not read this work in-depth.
 | (Einstein, 1905 🤷)            | shrug          | too long; did not read
 
-See ()[] for more examples.
+See [[PDF Docu](http://mirrors.ctan.org/macros/luatex/latex/emojicite/emojicite-doc.pdf)] for more examples.
+
 
 ## Requirements
 
-The package works with the Tex Live 2020 distributon and you need to use lualatex.
-If you use the `latexmk` tool, simple use `latexmk -pdflua`.
-See the [emoji](https://github.com/stone-zeng/latex-emoji) package for are in detail description on the requirements.
+The package requires the Tex Live 2020 distributon and you need to use lualatex.
+If you use the `latexmk` tool, simple use `latexmk -pdflua`.  See the
+[emoji](https://github.com/stone-zeng/latex-emoji) package for are in-depth
+description on the requirements.
+
+
+-----
+
+Copyright ©️ 2020 by Leon Sixt.
+
+🙏 to Xiangdong Zeng creator of [emoji](https://github.com/stone-zeng/latex-emoji)
