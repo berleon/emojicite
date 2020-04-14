@@ -67,6 +67,6 @@ description on the requirements.
 
 -----
 
-Copyright (C) 2020 by Leon Sixt.
+Copyright (C) 2020 by Leon Sixt, License LPPL 1.3c
 
 🙏 to Xiangdong Zeng creator of [emoji](https://github.com/stone-zeng/latex-emoji)
