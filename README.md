@@ -54,7 +54,7 @@ Table 2: How thoroughly have you read the work?
 | (Jones, 1972 🙈)               | see-no-evil    | Ups, I did not read this work in-depth.
 | (Einstein, 1905 🤷)            | shrug          | too long; did not read
 
-See [[PDF Docu](http://mirrors.ctan.org/macros/luatex/latex/emojicite/emojicite-doc.pdf)] for more examples.
+See [PDF Docu](http://mirrors.ctan.org/macros/luatex/latex/emojicite/emojicite-doc.pdf) for more examples.
 
 
 ## Requirements
@@ -67,6 +67,6 @@ description on the requirements.
 
 -----
 
-Copyright ©️ 2020 by Leon Sixt.
+Copyright (C) 2020 by Leon Sixt.
 
 🙏 to Xiangdong Zeng creator of [emoji](https://github.com/stone-zeng/latex-emoji)
